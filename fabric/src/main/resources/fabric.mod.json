@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "awesomesheepswell",
+  "version": "${version}",
+  "name": "Awesome Sheep Swell",
+  "description": "The wool thickens as the sheep eats grass, and you'll get more wool when sheared!",
+  "authors": [
+    "Wulian233"
+  ],
+  "contact": {
+    "sources": "https://github.com/Wulian233/AwesomeSheepSwell",
+    "issues": "https://github.com/Wulian233/AwesomeSheepSwell/issues"
+  },
+  "license": "GPL3",
+  "environment": "*",
+  "icon": "icon.png",
+  "entrypoints": {
+    "client": [
+      "com.wulian.awesomesheepswell.fabric.AwesomeSheepSwellFabric"
+    ],
+    "modmenu": [
+      "com.wulian.awesomesheepswell.fabric.ModMenuIntegration"
+    ]
+  },
+  "mixins": [
+    "awesomesheepswell.mixins.json"
+  ],
+  "depends": {
+    "architectury": "*",
+    "fabric": "*",
+    "minecraft": "1.18.x",
+    "cloth-config2": "*"
+  }
+}

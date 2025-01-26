@@ -1,0 +1,37 @@
+modLoader = "javafml"
+loaderVersion = "[38,)"
+issueTrackerURL = "https://github.com/Wulian233/AwesomeSheepSwell/issues"
+license = "GPL3"
+
+[[mods]]
+modId = "awesomesheepswell"
+version = "${version}"
+displayName = "Awesome Sheep Swell"
+displayURL = "https://github.com/Wulian233/AwesomeSheepSwell"
+authors = "Wulian233"
+credits = "suppergerrie2"
+description = '''
+The wool thickens as the sheep eats grass, and you'll get more wool when sheared!
+'''
+logoFile = "icon.png"
+
+[[dependencies.awesomesheepswell]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.18,1.19)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.awesomesheepswell]]
+modId = "cloth_config"
+mandatory = true
+versionRange = "[1,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.awesomesheepswell]]
+modId = "architectury"
+mandatory = true
+versionRange = "[4,)"
+ordering = "AFTER"
+side = "BOTH"

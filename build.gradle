@@ -1,0 +1,83 @@
+plugins {
+    id "architectury-plugin" version "3.4-SNAPSHOT"
+    id "dev.architectury.loom" version "1.9-SNAPSHOT" apply false
+    id "com.gradleup.shadow" version "8.+" apply false
+    id "com.hypherionmc.modutils.modpublisher" version "2.+"
+    id "com.hypherionmc.modutils.modfusioner" version "1.+"
+}
+
+architectury {
+    minecraft = rootProject.minecraft_version
+}
+
+subprojects {
+    apply plugin: "dev.architectury.loom"
+    apply plugin: "com.gradleup.shadow"
+
+    dependencies {
+        minecraft "com.mojang:minecraft:${rootProject.minecraft_version}"
+        mappings "net.fabricmc:yarn:${rootProject.yarn_mappings}:v2"
+    }
+}
+
+allprojects {
+    apply plugin: "java"
+    apply plugin: "architectury-plugin"
+
+    archivesBaseName = rootProject.archives_base_name
+    version = "${rootProject.mod_version}+mc${rootProject.minecraft_version}"
+    group = rootProject.maven_group
+
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+        options.release = 17
+    }
+
+    java {
+        withSourcesJar()
+    }
+}
+
+fusioner {
+    packageGroup = rootProject.maven_group
+    mergedJarName = "${rootProject.archives_base_name}.jar"
+    outputDirectory = "build/merged"
+    jarVersion = rootProject.version
+
+    forge {
+        projectName = "forge"
+        inputTaskName = "remapJar"
+    }
+
+    fabric {
+        projectName = "fabric"
+        inputTaskName = "remapJar"
+    }
+}
+
+publisher {
+    apiKeys {
+        curseforge(System.getenv("CURSEFORGE_TOKEN"))
+        modrinth(System.getenv("MODRINTH_TOKEN"))
+    }
+
+    curseID = rootProject.curseforge_id
+    modrinthID = rootProject.modrinth_id
+    versionType = "release"
+    changelog = file("CHANGELOG.md").getText('UTF-8')
+    version = "$rootProject.version"
+    displayName = "Awesome Sheep Swell 1.18.x $rootProject.mod_version"
+    gameVersions = ["1.18", "1.18.1", "1.18.2"]
+    loaders = ["fabric", "forge"]
+    artifact = fusejars
+
+    modrinthDepends {
+        required "cloth-config"
+        required "architectury-api"
+    }
+
+    curseDepends {
+        required "cloth-config"
+        required "architectury-api"
+    }
+}
