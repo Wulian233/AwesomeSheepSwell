@@ -9,6 +9,8 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.passive.SheepEntity;
 import net.minecraft.item.Items;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraftforge.client.ConfigGuiHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -46,7 +48,7 @@ public class AwesomeSheepSwellForge {
         event.setCanceled(true);
 
         int thickness = ((IThickness) sheep).getThickness();
-        Random random = sheep.getRandom();
+        final Random random = new Random();
         int dropCount = thickness == 0 ? random.nextInt(3) + 1 : thickness + random.nextInt(3);
 
         for (int i = 0; i < dropCount; i++) {
@@ -61,6 +63,6 @@ public class AwesomeSheepSwellForge {
         }
 
         sheep.setSheared(true);
-        event.getItemStack().damage(1, event.getPlayer(), (player) -> player.sendToolBreakStatus(event.getHand()));
-    }
+        sheep.world.playSoundFromEntity(null, sheep, SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.PLAYERS, 1.0F, 1.0F);
+        event.getItemStack().damage(1, event.getPlayer(), (player) -> player.sendToolBreakStatus(event.getHand()));    }
 }

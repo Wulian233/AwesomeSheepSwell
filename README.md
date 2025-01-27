@@ -1,4 +1,4 @@
-<div align="center"><img height="150" src="common/src/main/resources/icon.png" width="150"/>
+<div align="center"><img height="150" src="icon/icon.png" width="150"/>
 
 # Awesome Sheep Swell
 
@@ -36,7 +36,21 @@ via `/summon minecraft:sheep ~ ~ ~ {thickness:20}`.
 - Shearing sheep yields extra wool, calculated as 0-2 additional wool based on the sheep's wool thickness.
 - Configurable maximum wool thickness.
 
+## 📦 Compatibility
+
+This mod reimplements the rendering method for sheep, so some effects from other mods that modify sheep
+via Mixin might not be displayed as intended. Instead, they will be overridden by this mod, but it will
+not cause any crashes.
+
+Mods known to have their effects overridden by this mod: [Sheep Consistency (Forge)](https://www.curseforge.com/minecraft/mc-mods/sheep-consistency-forge) and [Sheep Consistency](https://www.curseforge.com/minecraft/mc-mods/sheep-consistency)
+
 ## ✨ Screenshots
+
+![](icon/gallery.png)
+
+![](icon/screenshot.png)
+
+![](icon/preview.mp4)
 
 ## 👀 License
 

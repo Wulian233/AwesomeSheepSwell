@@ -31,13 +31,12 @@ public abstract class SheepMixin implements IThickness {
         getSheep().getDataTracker().startTracking(THICKNESS, 0);
     }
 
-    @Inject(method = "sheared", at = @At(value = "HEAD"), cancellable = true)
+    @Inject(method = "sheared", at = @At(value = "HEAD"))
     private void injectSheared(CallbackInfo ci) {
         SheepEntity sheep = getSheep();
 
-        int thickness = getThickness();
-        Random random = sheep.getRandom();
-        int dropCount = thickness == 0 ? random.nextInt(3) + 1 : thickness + random.nextInt(3);
+        final Random random = new Random();
+        int dropCount = getThickness();
 
         for (int i = 0; i < dropCount; i++) {
             ItemEntity itemEntity = sheep.dropItem(SheepAccessor.getDrops().get(sheep.getColor()), 1);
@@ -49,9 +48,6 @@ public abstract class SheepMixin implements IThickness {
                 ));
             }
         }
-
-        sheep.setSheared(true);
-        ci.cancel();
     }
 
     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
