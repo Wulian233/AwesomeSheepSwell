@@ -7,7 +7,11 @@ import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.passive.SheepEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -31,13 +35,11 @@ public abstract class SheepMixin implements IThickness {
         getSheep().getDataTracker().startTracking(THICKNESS, 0);
     }
 
-    @Inject(method = "sheared", at = @At(value = "HEAD"), cancellable = true)
-    private void injectSheared(CallbackInfo ci) {
+    @Inject(method = "sheared", at = @At(value = "HEAD"))
+    private void injectSheared(SoundCategory shearedSoundCategory, CallbackInfo ci) {
         SheepEntity sheep = getSheep();
-
-        int thickness = getThickness();
-        Random random = sheep.getRandom();
-        int dropCount = thickness == 0 ? random.nextInt(3) + 1 : thickness + random.nextInt(3);
+        final Random random = new Random();
+        int dropCount = getThickness();
 
         for (int i = 0; i < dropCount; i++) {
             ItemEntity itemEntity = sheep.dropItem(SheepAccessor.getDrops().get(sheep.getColor()), 1);
@@ -49,9 +51,6 @@ public abstract class SheepMixin implements IThickness {
                 ));
             }
         }
-
-        sheep.setSheared(true);
-        ci.cancel();
     }
 
     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
