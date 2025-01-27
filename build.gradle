@@ -66,8 +66,8 @@ publisher {
     versionType = "release"
     changelog = file("CHANGELOG.md").getText('UTF-8')
     version = "$rootProject.version"
-    displayName = "Awesome Sheep Swell 1.19-1.19.2 $rootProject.mod_version"
-    gameVersions = ["1.19", "1.19.1", "1.19.2"]
+    displayName = "Awesome Sheep Swell 1.19.x $rootProject.mod_version"
+    gameVersions = ["1.19", "1.19.1", "1.19.2", "1.19.3", "1.19.4"]
     loaders = ["fabric", "forge"]
     artifact = fusejars
 
