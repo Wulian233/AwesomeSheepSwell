@@ -3,7 +3,7 @@
 # Awesome Sheep Swell
 
 [![GitHub license](https://img.shields.io/github/license/Wulian233/AwesomeSheepSwell?style=flat-square)](LICENSE)
-[![CurseForge-badge](https://img.shields.io/curseforge/dt/not-available?style=flat-square&logo=curseforge&label=CurseForge)](https://www.curseforge.com/minecraft/mc-mods/awesome-sheep-swell)
+[![CurseForge-badge](https://img.shields.io/curseforge/dt/1188071?style=flat-square&logo=curseforge&label=CurseForge)](https://www.curseforge.com/minecraft/mc-mods/awesome-sheep-swell)
 ![Modrinth Downloads](https://img.shields.io/modrinth/dt/awesome-sheep-swell?label=Modrinth&logo=Modrinth&style=flat-square)
 
 This mod has improved the sheep's wool, which is very useful and fun. The wool thickens as the sheep eats grass, and
@@ -18,6 +18,8 @@ you'll get more wool when sheared!
 <img alt="architectury-api" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3.2.0/assets/cozy/requires/architectury-api_vector.svg">
 <img alt="cloth-config-api" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3.2.0/assets/cozy/requires/cloth-config-api_vector.svg">
 </div>
+
+![](https://cdn.modrinth.com/data/DXfVJLBA/images/10f8b5e0714d65320dfef09b21eb9f2604a8cd1a.gif)
 
 ## 📖 What's this mod?
 
