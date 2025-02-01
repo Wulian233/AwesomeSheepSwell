@@ -1,4 +1,4 @@
-package com.wulian.awesomesheepswell.forge;
+package com.wulian.awesomesheepswell.neoforge;
 
 import com.wulian.awesomesheepswell.AwesomeSheepSwell;
 import com.wulian.awesomesheepswell.Config;
@@ -11,26 +11,27 @@ import net.minecraft.entity.passive.SheepEntity;
 import net.minecraft.item.Items;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraftforge.client.ConfigScreenHandler;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModContainer;
-import net.minecraftforge.fml.ModList;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.loading.FMLLoader;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.neoforge.client.ConfigScreenHandler;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
+
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.ModList;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.loading.FMLLoader;
 
 import java.util.Random;
 import java.util.function.Function;
 
 @Mod(AwesomeSheepSwell.MOD_ID)
-public class AwesomeSheepSwellForge {
-    public AwesomeSheepSwellForge() {
+public class AwesomeSheepSwellNeoForge {
+    public AwesomeSheepSwellNeoForge() {
         if (FMLLoader.getDist().isClient()) {
             AwesomeSheepSwell.init();
             registerConfigScreen(AwesomeSheepSwell.MOD_ID, screen -> AutoConfig.getConfigScreen(Config.class, screen).get());
         }
-        MinecraftForge.EVENT_BUS.register(this);
+        NeoForge.EVENT_BUS.register(this);
     }
 
     public static void registerConfigScreen(String modid, Function<Screen, Screen> screenFunction) {
