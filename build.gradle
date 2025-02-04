@@ -16,7 +16,10 @@ subprojects {
 
     dependencies {
         minecraft "com.mojang:minecraft:${rootProject.minecraft_version}"
-        mappings "net.fabricmc:yarn:${rootProject.yarn_mappings}:v2"
+        mappings loom.layered{
+            mappings "net.fabricmc:yarn:${rootProject.yarn_mappings}:v2"
+            mappings "dev.architectury:yarn-mappings-patch-neoforge:${rootProject.yarn_patch}"
+        }
     }
 }
 
@@ -30,7 +33,7 @@ allprojects {
 
     tasks.withType(JavaCompile) {
         options.encoding = "UTF-8"
-        options.release = 17
+        options.release = 21
     }
 
     java {
@@ -43,11 +46,6 @@ fusioner {
     mergedJarName = "${rootProject.archives_base_name}.jar"
     outputDirectory = "build/merged"
     jarVersion = rootProject.version
-
-    forge {
-        projectName = "forge"
-        inputTaskName = "remapJar"
-    }
 
     fabric {
         projectName = "fabric"
@@ -71,9 +69,9 @@ publisher {
     versionType = "release"
     changelog = file("CHANGELOG.md").getText('UTF-8')
     version = "$rootProject.version"
-    displayName = "Awesome Sheep Swell 1.20-1.20.4 $rootProject.mod_version"
-    gameVersions = ["1.20", "1.20.1", "1.20.2", "1.20.3", "1.20.4"]
-    loaders = ["fabric", "forge", "neoforge"]
+    displayName = "Awesome Sheep Swell 1.20.5-1.20.6 $rootProject.mod_version"
+    gameVersions = ["1.20.5", "1.20.6"]
+    loaders = ["fabric", "neoforge"]
     artifact = fusejars
 
     modrinthDepends {

@@ -4,6 +4,7 @@ import com.wulian.awesomesheepswell.AwesomeSheepSwell;
 import com.wulian.awesomesheepswell.IThickness;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.data.DataTracker;
+import net.minecraft.entity.data.DataTracker.Builder;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.passive.SheepEntity;
@@ -28,8 +29,8 @@ public abstract class SheepMixin implements IThickness {
     }
 
     @Inject(method = "initDataTracker", at = @At("TAIL"))
-    private void injectDataTracker(CallbackInfo ci) {
-        getSheep().getDataTracker().startTracking(THICKNESS, 0);
+    private void injectDataTracker(Builder builder, CallbackInfo ci) {
+        builder.add(THICKNESS, 0);
     }
 
     @Inject(method = "sheared", at = @At(value = "HEAD"))

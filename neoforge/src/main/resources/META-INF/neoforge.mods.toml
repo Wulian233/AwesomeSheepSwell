@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[38,)"
+loaderVersion = "[1,)"
 issueTrackerURL = "https://github.com/Wulian233/AwesomeSheepSwell/issues"
 license = "GPL3"
 
@@ -7,7 +7,7 @@ license = "GPL3"
 modId = "awesomesheepswell"
 version = "${version}"
 displayName = "Awesome Sheep Swell"
-displayURL = "https://github.com/Wulian233/AwesomeSheepSwell"
+displayURL = "https://github.com/Wulian233/AwesomeSheepSwell/"
 authors = "Wulian233"
 credits = "suppergerrie2"
 description = '''
@@ -15,23 +15,26 @@ The wool thickens as the sheep eats grass, and you'll get more wool when sheared
 '''
 logoFile = "icon.png"
 
+[[mixins]]
+config = "awesomesheepswell.mixins.json"
+
 [[dependencies.awesomesheepswell]]
 modId = "minecraft"
-mandatory = true
-versionRange = "[1.20,1.20.5)"
+type = "required"
+versionRange = "[1.20.5,1.21)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.awesomesheepswell]]
+modId = "architectury"
+type = "required"
+versionRange = "*"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.awesomesheepswell]]
 modId = "cloth_config"
-mandatory = true
-versionRange = "[1,)"
-ordering = "AFTER"
-side = "BOTH"
-
-[[dependencies.awesomesheepswell]]
-modId = "architectury"
-mandatory = true
-versionRange = "[4,)"
+type = "required"
+versionRange = "*"
 ordering = "AFTER"
 side = "BOTH"

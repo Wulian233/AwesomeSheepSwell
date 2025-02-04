@@ -12,7 +12,7 @@ import net.minecraft.item.Items;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.neoforge.client.ConfigScreenHandler;
+import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 
@@ -36,8 +36,8 @@ public class AwesomeSheepSwellNeoForge {
 
     public static void registerConfigScreen(String modid, Function<Screen, Screen> screenFunction) {
         ModContainer modContainer = ModList.get().getModContainerById(modid).orElseThrow();
-        modContainer.registerExtensionPoint(ConfigScreenHandler.ConfigScreenFactory.class,
-                () -> new ConfigScreenHandler.ConfigScreenFactory((client, screen) -> screenFunction.apply(screen)));
+        modContainer.registerExtensionPoint(IConfigScreenFactory.class,
+                (client, screen) -> screenFunction.apply(screen));
     }
 
     @SubscribeEvent
@@ -65,6 +65,6 @@ public class AwesomeSheepSwellNeoForge {
 
         sheep.setSheared(true);
         sheep.getWorld().playSoundFromEntity(null, sheep, SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.PLAYERS, 1.0F, 1.0F);
-        event.getItemStack().damage(1, event.getEntity(), (player) -> player.sendToolBreakStatus(event.getHand()));
+        event.getItemStack().damage(1, event.getEntity(), event.getItemStack().getEquipmentSlot());
     }
 }
