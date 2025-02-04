@@ -6,7 +6,7 @@ license = "GPL3"
 [[mods]]
 modId = "awesomesheepswell"
 version = "${version}"
-displayName = "VM Translation Update"
+displayName = "Awesome Sheep Swell"
 displayURL = "https://github.com/Wulian233/AwesomeSheepSwell/"
 authors = "Wulian233"
 credits = "suppergerrie2"
