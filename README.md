@@ -37,6 +37,7 @@ via `/summon minecraft:sheep ~ ~ ~ {thickness:20}`.
 - The wool thickness increases as the sheep eats grass.
 - Shearing sheep yields extra wool, calculated as 0-2 additional wool based on the sheep's wool thickness.
 - Configurable maximum wool thickness.
+- Sheep spawn with a random thickness from 1 to 10, with decreasing weight as thickness increases.
 
 ## 📦 Compatibility
 

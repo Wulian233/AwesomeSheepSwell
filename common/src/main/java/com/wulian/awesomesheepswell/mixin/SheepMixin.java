@@ -2,17 +2,22 @@ package com.wulian.awesomesheepswell.mixin;
 
 import com.wulian.awesomesheepswell.AwesomeSheepSwell;
 import com.wulian.awesomesheepswell.IThickness;
+import net.minecraft.entity.EntityData;
 import net.minecraft.entity.ItemEntity;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.passive.SheepEntity;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.world.LocalDifficulty;
+import net.minecraft.world.ServerWorldAccess;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Random;
 
@@ -68,14 +73,19 @@ public abstract class SheepMixin implements IThickness {
         }
     }
 
+    @Inject(method = "initialize", at = @At("TAIL"))
+    private void injectInitialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, EntityData entityData, NbtCompound entityNbt, CallbackInfoReturnable<EntityData> cir) {
+        setThickness(AwesomeSheepSwell.getRandomThickness());
+    }
+
     @Unique
     public int getThickness() {
         return Math.min(getSheep().getDataTracker().get(THICKNESS), AwesomeSheepSwell.getMaxThickness());
     }
 
     @Unique
-    public void setThickness(int chonkyness) {
-        chonkyness = Math.min(AwesomeSheepSwell.getMaxThickness(), chonkyness);
-        getSheep().getDataTracker().set(THICKNESS, chonkyness);
+    public void setThickness(int thickness) {
+        thickness = Math.min(AwesomeSheepSwell.getMaxThickness(), thickness);
+        getSheep().getDataTracker().set(THICKNESS, thickness);
     }
 }
