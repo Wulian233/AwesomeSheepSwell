@@ -42,7 +42,7 @@ public class AwesomeSheepSwellNeoForge {
 
     @SubscribeEvent
     public void onSheepSheared(PlayerInteractEvent.EntityInteractSpecific event) {
-        if (!(event.getTarget() instanceof SheepEntity sheep) || event.getItemStack().getItem() != Items.SHEARS || sheep.isSheared()) {
+        if (!(event.getTarget() instanceof SheepEntity sheep) || event.getItemStack().getItem() != Items.SHEARS || sheep.isSheared() || sheep.isBaby()) {
             return;
         }
 
