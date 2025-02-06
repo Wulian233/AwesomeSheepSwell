@@ -1,8 +1,9 @@
 {
   "text.autoconfig.awesomesheepswell.title": "豐毛肥羊",
-  "text.autoconfig.awesomesheepswell.option.maxThickness": "綿羊羊毛的最大厚度",
+  "text.autoconfig.awesomesheepswell.option.maxThickness": "綿羊羊毛增長到最大厚度尺寸所需的層數",
+  "text.autoconfig.awesomesheepswell.option.maxThickness.@Tooltip": "數值越大，每層的羊毛厚度變化越小",
   "fml.menu.mods.info.displayname.awesomesheepswell": "豐毛肥羊",
-  "fml.menu.mods.info.description.awesomesheepswell": "讓羊毛隨著吃草變得更厚，剪毛得到的羊毛也會更多！",
+  "fml.menu.mods.info.description.awesomesheepswell": "讓綿羊的羊毛隨著吃草變得更厚，剪毛后得到的羊毛也會更多！",
   "modmenu.nameTranslation.awesomesheepswell": "豐毛肥羊",
-  "modmenu.descriptionTranslation.awesomesheepswell": "讓羊毛隨著吃草變得更厚，剪毛得到的羊毛也會更多！"
+  "modmenu.descriptionTranslation.awesomesheepswell": "讓綿羊的羊毛隨著吃草變得更厚，剪毛后得到的羊毛也會更多！"
 }
