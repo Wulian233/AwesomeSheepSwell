@@ -1,6 +1,7 @@
 {
   "text.autoconfig.awesomesheepswell.title": "Awesome Sheep Swell",
-  "text.autoconfig.awesomesheepswell.option.maxThickness": "Maximum Thickness of Sheep's Wool",
+  "text.autoconfig.awesomesheepswell.option.maxThickness": "Layers to max wool thickness",
+  "text.autoconfig.awesomesheepswell.option.maxThickness.@Tooltip": "Larger values, smaller thickness change per layer.",
   "fml.menu.mods.info.displayname.awesomesheepswell": "Awesome Sheep Swell",
   "fml.menu.mods.info.description.awesomesheepswell": "The wool thickens as the sheep eats grass, and you'll get more wool when sheared!",
   "modmenu.nameTranslation.awesomesheepswell": "Awesome Sheep Swell",
