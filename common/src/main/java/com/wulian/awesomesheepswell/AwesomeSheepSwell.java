@@ -13,18 +13,25 @@ public class AwesomeSheepSwell {
     public static Config config;
 
     public static void init() {
-        AutoConfig.register(Config.class, JanksonConfigSerializer::new);
-        config = AutoConfig.getConfigHolder(Config.class).getConfig();
         EntityRendererRegistry.register(() -> EntityType.SHEEP, SheepRenderer::new);
+        getConfig();
+    }
+
+    public static Config getConfig() {
+        if (config == null) {
+            AutoConfig.register(Config.class, JanksonConfigSerializer::new);
+            config = AutoConfig.getConfigHolder(Config.class).getConfig();
+        }
+        return config;
     }
 
     public static int getMaxThickness() {
-        return config.maxThickness;
+        return getConfig().maxThickness;
     }
 
     public static int getRandomThickness() {
         Random random = new Random();
-        int[] weights = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+        int[] weights = {8, 7, 6, 5, 4, 3, 2, 1};
         int totalWeight = 0;
 
         for (int weight : weights) {
