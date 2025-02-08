@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[38,)"
+loaderVersion = "[37,)"
 issueTrackerURL = "https://github.com/Wulian233/AwesomeSheepSwell/issues"
 license = "GPL3"
 
