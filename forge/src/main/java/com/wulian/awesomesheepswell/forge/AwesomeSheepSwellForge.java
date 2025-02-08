@@ -10,12 +10,12 @@ import net.minecraft.entity.passive.SheepEntity;
 import net.minecraft.item.Items;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraftforge.client.ConfigGuiHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.loading.FMLLoader;
+import net.minecraftforge.fmlclient.ConfigGuiHandler;
 
 import java.util.Random;
 
@@ -53,7 +53,7 @@ public class AwesomeSheepSwellForge {
             }
 
             sheep.setSheared(true);
-            sheep.getWorld().playSoundFromEntity(null, sheep, SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.PLAYERS, 1.0F, 1.0F);
+            sheep.world.playSoundFromEntity(null, sheep, SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.PLAYERS, 1.0F, 1.0F);
             event.getItemStack().damage(1, event.getPlayer(), (player) -> player.sendToolBreakStatus(event.getHand()));
         });
     }

@@ -18,7 +18,7 @@ logoFile = "icon.png"
 [[dependencies.awesomesheepswell]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.18,1.19)"
+versionRange = "[1.17,1.18)"
 ordering = "NONE"
 side = "BOTH"
 
@@ -32,6 +32,6 @@ side = "BOTH"
 [[dependencies.awesomesheepswell]]
 modId = "architectury"
 mandatory = true
-versionRange = "[4,)"
+versionRange = "[1,)"
 ordering = "AFTER"
 side = "BOTH"

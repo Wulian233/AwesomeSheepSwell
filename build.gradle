@@ -30,7 +30,7 @@ allprojects {
 
     tasks.withType(JavaCompile).configureEach {
         options.encoding = "UTF-8"
-        options.release = 17
+        options.release = 16
     }
 
     java {
@@ -66,8 +66,8 @@ publisher {
     versionType = "release"
     changelog = file("CHANGELOG.md").getText('UTF-8')
     version = "$rootProject.version"
-    displayName = "Awesome Sheep Swell 1.18.x $rootProject.mod_version"
-    gameVersions = ["1.18", "1.18.1", "1.18.2"]
+    displayName = "Awesome Sheep Swell 1.17.x $rootProject.mod_version"
+    gameVersions = ["1.17", "1.17.1"]
     loaders = ["fabric", "forge"]
     artifact = fusejars
 
