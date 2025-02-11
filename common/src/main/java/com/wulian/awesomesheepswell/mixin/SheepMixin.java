@@ -53,6 +53,7 @@ public abstract class SheepMixin implements IThickness {
                 ));
             }
         }
+        setThickness(0);
     }
 
     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
