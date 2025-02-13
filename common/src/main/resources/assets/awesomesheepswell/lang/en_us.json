@@ -1,4 +1,6 @@
 {
+  "advancements.husbandry.shear_sheep.title": "Wool Bandit!",
+  "advancements.husbandry.shear_sheep.description": "Use shears to shear a sheep",
   "text.autoconfig.awesomesheepswell.title": "Awesome Sheep Swell",
   "text.autoconfig.awesomesheepswell.option.maxThickness": "Layers to max wool thickness",
   "text.autoconfig.awesomesheepswell.option.maxThickness.@Tooltip": "Larger values, smaller thickness change per layer.",

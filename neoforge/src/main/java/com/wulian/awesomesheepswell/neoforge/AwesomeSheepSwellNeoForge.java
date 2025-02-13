@@ -53,6 +53,7 @@ public class AwesomeSheepSwellNeoForge {
                 }
             }
 
+            ((IThickness) sheep).setThickness(0);
             sheep.setSheared(true);
             sheep.getWorld().playSoundFromEntity(null, sheep, SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.PLAYERS, 1.0F, 1.0F);
             event.getItemStack().damage(1, event.getEntity(), event.getItemStack().getEquipmentSlot());
