@@ -1,0 +1,37 @@
+{
+    "parent": "minecraft:husbandry/root",
+    "criteria": {
+      "shear_sheep": {
+        "trigger": "minecraft:player_interacted_with_entity",
+        "conditions": {
+          "entity": {
+            "type": "minecraft:sheep",
+            "nbt": "{Sheared:1b}"
+          },
+          "player": {
+            "equipment": {
+              "mainhand": {
+                "item": "minecraft:shears"
+              }
+            }
+          }
+        }
+      }
+    },
+    "display": {
+      "description": {
+        "translate": "advancements.husbandry.shear_sheep.description"
+      },
+      "icon": {
+        "item": "minecraft:white_wool"
+      },
+      "title": {
+        "translate": "advancements.husbandry.shear_sheep.title"
+      }
+    },
+    "requirements": [
+      [
+        "shear_sheep"
+      ]
+    ]
+  }

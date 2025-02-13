@@ -1,4 +1,6 @@
 {
+  "advancements.husbandry.shear_sheep.title": "薅羊毛！",
+  "advancements.husbandry.shear_sheep.description": "用剪刀剪羊毛",
   "text.autoconfig.awesomesheepswell.title": "丰毛肥羊",
   "text.autoconfig.awesomesheepswell.option.maxThickness": "绵羊羊毛增长到最大厚度尺寸所需的层数",
   "text.autoconfig.awesomesheepswell.option.maxThickness.@Tooltip": "数值越大，每层的羊毛厚度变化越小",
