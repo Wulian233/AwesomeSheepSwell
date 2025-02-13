@@ -23,7 +23,7 @@
         "translate": "advancements.husbandry.shear_sheep.description"
       },
       "icon": {
-        "id": "minecraft:white_wool"
+        "item": "minecraft:white_wool"
       },
       "title": {
         "translate": "advancements.husbandry.shear_sheep.title"
