@@ -6,8 +6,6 @@ import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.LivingEntityRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRendererContext;
-import net.minecraft.client.render.entity.model.EntityModelLayers;
-import net.minecraft.client.render.entity.model.EntityModelLoader;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.passive.SheepEntity;
 import net.minecraft.util.DyeColor;
@@ -15,11 +13,10 @@ import net.minecraft.util.Identifier;
 
 public class SheepWoolFeatureRenderer extends FeatureRenderer<SheepEntity, SheepEntityModel<SheepEntity>> {
     private static final Identifier SKIN = new Identifier("textures/entity/sheep/sheep_fur.png");
-    private final SheepWoolEntityModel model;
+    private final SheepWoolEntityModel model = new SheepWoolEntityModel();
 
-    public SheepWoolFeatureRenderer(FeatureRendererContext<SheepEntity, SheepEntityModel<SheepEntity>> context, EntityModelLoader loader) {
-        super(context);
-        this.model = new SheepWoolEntityModel(loader.getModelPart(EntityModelLayers.SHEEP_FUR));
+    public SheepWoolFeatureRenderer(FeatureRendererContext<SheepEntity, SheepEntityModel<SheepEntity>> arg) {
+        super(arg);
     }
 
     public void render(MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int light, SheepEntity sheep,
@@ -30,7 +27,7 @@ public class SheepWoolFeatureRenderer extends FeatureRenderer<SheepEntity, Sheep
 
         float[] color;
         if (sheep.hasCustomName() && "jeb_".equals(sheep.getName().getString())) {
-            int time = sheep.age / 25 + sheep.getId();
+            int time = sheep.age / 25 + sheep.getEntityId();
             int dyeAmount = DyeColor.values().length;
             int dyeId = time % dyeAmount;
             int nextDyeId = (time + 1) % dyeAmount;

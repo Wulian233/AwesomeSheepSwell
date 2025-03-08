@@ -16,6 +16,9 @@
   "icon": "icon.png",
   "entrypoints": {
     "client": [
+      "com.wulian.awesomesheepswell.fabric.AwesomeSheepSwellFabricClient"
+    ],
+    "main": [
       "com.wulian.awesomesheepswell.fabric.AwesomeSheepSwellFabric"
     ],
     "modmenu": [
@@ -26,9 +29,8 @@
     "awesomesheepswell.mixins.json"
   ],
   "depends": {
-    "architectury": "*",
-    "fabric": "*",
-    "minecraft": "1.17.x",
+    "architectury": ">=1",
+    "minecraft": "1.16.5",
     "cloth-config2": "*"
   }
 }

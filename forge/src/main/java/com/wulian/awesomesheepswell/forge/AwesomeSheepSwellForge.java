@@ -12,26 +12,32 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.fml.ExtensionPoint;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.loading.FMLLoader;
-import net.minecraftforge.fmlclient.ConfigGuiHandler;
 
 import java.util.Random;
 
 @Mod(AwesomeSheepSwell.MOD_ID)
 public class AwesomeSheepSwellForge {
     public AwesomeSheepSwellForge() {
+        AwesomeSheepSwell.ConfigInitializer();
         if (FMLLoader.getDist().isClient()) {
-            AwesomeSheepSwell.init();
+            AwesomeSheepSwell.ClientInitializer();
             ModLoadingContext.get().registerExtensionPoint(
-                    ConfigGuiHandler.ConfigGuiFactory.class,
-                    () -> new ConfigGuiHandler.ConfigGuiFactory((client, screen) -> AutoConfig.getConfigScreen(Config.class, screen).get())
+                    ExtensionPoint.CONFIGGUIFACTORY,
+                    () -> (client, screen) -> AutoConfig.getConfigScreen(Config.class, screen).get()
             );
         }
 
         MinecraftForge.EVENT_BUS.<PlayerInteractEvent.EntityInteractSpecific>addListener(event -> {
-            if (!(event.getTarget() instanceof SheepEntity sheep) || event.getItemStack().getItem() != Items.SHEARS || sheep.isSheared() || sheep.isBaby()) {
+            if (!(event.getTarget() instanceof SheepEntity)) {
+                return;
+            }
+            SheepEntity sheep = (SheepEntity) event.getTarget();
+
+            if (event.getItemStack().getItem() != Items.SHEARS || sheep.isSheared() || sheep.isBaby()) {
                 return;
             }
 

@@ -1,7 +1,7 @@
 package com.wulian.awesomesheepswell;
 
 import com.wulian.awesomesheepswell.entities.rendering.SheepRenderer;
-import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
+import me.shedaniel.architectury.registry.entity.EntityRenderers;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import net.minecraft.entity.EntityType;
@@ -12,9 +12,12 @@ public class AwesomeSheepSwell {
     public static final String MOD_ID = "awesomesheepswell";
     public static Config config;
 
-    public static void init() {
-        EntityRendererRegistry.register(() -> EntityType.SHEEP, SheepRenderer::new);
+    public static void ConfigInitializer() {
         getConfig();
+    }
+
+    public static void ClientInitializer() {
+        EntityRenderers.register(EntityType.SHEEP, SheepRenderer::new);
     }
 
     public static Config getConfig() {

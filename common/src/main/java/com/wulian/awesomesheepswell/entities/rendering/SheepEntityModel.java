@@ -8,8 +8,14 @@ public class SheepEntityModel<T extends SheepEntity> extends QuadrupedEntityMode
 
     private float headPitchModifier;
 
-    public SheepEntityModel(ModelPart root) {
-        super(root, false, 8.0F, 4.0F, 2.0F, 2.0F, 24);
+    public SheepEntityModel() {
+        super(12, 0.0F, false, 8.0F, 4.0F, 2.0F, 2.0F, 24);
+        this.head = new ModelPart(this, 0, 0);
+        this.head.addCuboid(-3.0F, -4.0F, -6.0F, 6.0F, 6.0F, 8.0F, 0.0F);
+        this.head.setPivot(0.0F, 6.0F, -8.0F);
+        this.body = new ModelPart(this, 28, 8);
+        this.body.addCuboid(-4.0F, -10.0F, -7.0F, 8.0F, 16.0F, 6.0F, 0.0F);
+        this.body.setPivot(0.0F, 5.0F, 2.0F);
     }
 
     public void animateModel(T sheepEntity, float f, float g, float h) {
@@ -22,5 +28,4 @@ public class SheepEntityModel<T extends SheepEntity> extends QuadrupedEntityMode
         super.setAngles(sheepEntity, f, g, h, i, j);
         this.head.pitch = this.headPitchModifier;
     }
-
 }

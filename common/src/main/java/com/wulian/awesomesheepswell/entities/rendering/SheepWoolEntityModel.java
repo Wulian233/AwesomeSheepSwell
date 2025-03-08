@@ -17,8 +17,27 @@ public class SheepWoolEntityModel extends QuadrupedEntityModel<SheepEntity> {
     private float scale = 1;
     private float headAngle;
 
-    public SheepWoolEntityModel(ModelPart root) {
-        super(root, false, 8.0F, 4.0F, 2.0F, 2.0F, 24);
+    public SheepWoolEntityModel() {
+        super(12, 0.0F, false, 8.0F, 4.0F, 2.0F, 2.0F, 24);
+
+        this.head = new ModelPart(this, 0, 0);
+        this.head.addCuboid(-3.0F, -4.0F, -4.0F, 6.0F, 6.0F, 6.0F, 0.6F);
+        this.head.setPivot(0.0F, 6.0F, -8.0F);
+        this.body = new ModelPart(this, 28, 8);
+        this.body.addCuboid(-4.0F, -10.0F, -7.0F, 8.0F, 16.0F, 6.0F, 1.75F);
+        this.body.setPivot(0.0F, 5.0F, 2.0F);
+        this.backRightLeg = new ModelPart(this, 0, 16);
+        this.backRightLeg.addCuboid(-2.0F, 0.0F, -2.0F, 4.0F, 6.0F, 4.0F, 0.5F);
+        this.backRightLeg.setPivot(-3.0F, 12.0F, 7.0F);
+        this.backLeftLeg = new ModelPart(this, 0, 16);
+        this.backLeftLeg.addCuboid(-2.0F, 0.0F, -2.0F, 4.0F, 6.0F, 4.0F, 0.5F);
+        this.backLeftLeg.setPivot(3.0F, 12.0F, 7.0F);
+        this.frontRightLeg = new ModelPart(this, 0, 16);
+        this.frontRightLeg.addCuboid(-2.0F, 0.0F, -2.0F, 4.0F, 6.0F, 4.0F, 0.5F);
+        this.frontRightLeg.setPivot(-3.0F, 12.0F, -5.0F);
+        this.frontLeftLeg = new ModelPart(this, 0, 16);
+        this.frontLeftLeg.addCuboid(-2.0F, 0.0F, -2.0F, 4.0F, 6.0F, 4.0F, 0.5F);
+        this.frontLeftLeg.setPivot(3.0F, 12.0F, -5.0F);
     }
 
     public void animateModel(SheepEntity sheepEntity, float f, float g, float h) {
@@ -63,10 +82,10 @@ public class SheepWoolEntityModel extends QuadrupedEntityModel<SheepEntity> {
                              float blue, float alpha) {
         renderScale(this.head, scale, scale, 1, matrices, vertices, light, overlay, red, green, blue, alpha);
         renderScale(this.body, scale, scale, 1, 0.5f, matrices, vertices, light, overlay, red, green, blue, alpha);
-        renderScale(this.leftFrontLeg, scale, 1, scale, matrices, vertices, light, overlay, red, green, blue, alpha);
-        renderScale(this.rightFrontLeg, scale, 1, scale, matrices, vertices, light, overlay, red, green, blue, alpha);
-        renderScale(this.leftHindLeg, scale, 1, scale, matrices, vertices, light, overlay, red, green, blue, alpha);
-        renderScale(this.rightHindLeg, scale, 1, scale, matrices, vertices, light, overlay, red, green, blue, alpha);
+        renderScale(this.frontLeftLeg, scale, 1, scale, matrices, vertices, light, overlay, red, green, blue, alpha);
+        renderScale(this.frontRightLeg, scale, 1, scale, matrices, vertices, light, overlay, red, green, blue, alpha);
+        renderScale(this.backLeftLeg, scale, 1, scale, matrices, vertices, light, overlay, red, green, blue, alpha);
+        renderScale(this.backRightLeg, scale, 1, scale, matrices, vertices, light, overlay, red, green, blue, alpha);
     }
 
     private void renderScale(ModelPart model, float xScale, float yScale, float zScale, MatrixStack matrices,

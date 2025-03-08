@@ -1,11 +1,11 @@
 package com.wulian.awesomesheepswell.fabric;
 
 import com.wulian.awesomesheepswell.AwesomeSheepSwell;
-import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.api.ModInitializer;
 
-public class AwesomeSheepSwellFabric implements ClientModInitializer {
+public class AwesomeSheepSwellFabric implements ModInitializer {
     @Override
-    public void onInitializeClient() {
-        AwesomeSheepSwell.init();
+    public void onInitialize() {
+        AwesomeSheepSwell.ConfigInitializer();
     }
 }
