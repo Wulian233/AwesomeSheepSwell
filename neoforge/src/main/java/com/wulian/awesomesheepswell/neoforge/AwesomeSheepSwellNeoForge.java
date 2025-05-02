@@ -20,6 +20,7 @@ import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.loading.FMLLoader;
 
+import java.util.Map;
 import java.util.Random;
 
 @Mod(AwesomeSheepSwell.MOD_ID)
