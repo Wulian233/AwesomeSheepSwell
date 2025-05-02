@@ -7,9 +7,11 @@ import com.wulian.awesomesheepswell.mixin.SheepAccessor;
 import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.passive.SheepEntity;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.DyeColor;
 import net.minecraftforge.client.ConfigGuiHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -17,6 +19,7 @@ import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.loading.FMLLoader;
 
+import java.util.Map;
 import java.util.Random;
 
 @Mod(AwesomeSheepSwell.MOD_ID)
@@ -41,8 +44,11 @@ public class AwesomeSheepSwellForge {
             final Random random = new Random();
             int dropCount = thickness == 0 ? random.nextInt(3) + 1 : thickness + random.nextInt(3);
 
+            Map<DyeColor, ItemConvertible> drops = SheepAccessor.getDrops();
+            ItemConvertible woolItem = drops.getOrDefault(sheep.getColor(), Items.WHITE_WOOL);
+
             for (int i = 0; i < dropCount; i++) {
-                ItemEntity itemEntity = sheep.dropItem(SheepAccessor.getDrops().get(sheep.getColor()), 1);
+                ItemEntity itemEntity = sheep.dropItem(woolItem, 1);
                 if (itemEntity != null) {
                     itemEntity.setVelocity(itemEntity.getVelocity().add(
                             (random.nextFloat() - random.nextFloat()) * 0.1F,
