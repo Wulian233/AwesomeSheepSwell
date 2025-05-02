@@ -10,8 +10,11 @@ import net.minecraft.entity.data.DataTracker.Builder;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.passive.SheepEntity;
+import net.minecraft.item.ItemConvertible;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.util.DyeColor;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import org.spongepowered.asm.mixin.Mixin;
@@ -21,6 +24,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import java.util.Map;
 import java.util.Random;
 
 @Mixin(SheepEntity.class)
@@ -44,8 +48,11 @@ public abstract class SheepMixin implements IThickness {
         final Random random = new Random();
         int dropCount = getThickness();
 
+        Map<DyeColor, ItemConvertible> drops = SheepAccessor.getDrops();
+        ItemConvertible woolItem = drops.getOrDefault(sheep.getColor(), Items.WHITE_WOOL);
+
         for (int i = 0; i < dropCount; i++) {
-            ItemEntity itemEntity = sheep.dropItem(SheepAccessor.getDrops().get(sheep.getColor()), 1);
+            ItemEntity itemEntity = sheep.dropItem(woolItem, 1);
             if (itemEntity != null) {
                 itemEntity.setVelocity(itemEntity.getVelocity().add(
                         (random.nextFloat() - random.nextFloat()) * 0.1F,
