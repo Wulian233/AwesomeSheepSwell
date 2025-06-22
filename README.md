@@ -32,7 +32,7 @@ you'll get more wool when sheared!
 This mod adds a new NBT `thickness` to sheep, which you can summon with a thickness of 20
 via `/summon minecraft:sheep ~ ~ ~ {thickness:20}`.
 
-## ✅ Features                                                                                                                                                                                                                       
+## ✅ Features
 
 - The wool thickness increases as the sheep eats grass.
 - Shearing sheep yields extra wool, calculated as 0-2 additional wool based on the sheep's wool thickness.
