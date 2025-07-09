@@ -4,6 +4,7 @@
   "package": "com.wulian.awesomesheepswell.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "LivingEntityMixin",
     "SheepAccessor",
     "SheepMixin"
   ],
