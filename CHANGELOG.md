@@ -1,5 +1,9 @@
 # Changelogs
 
+## 1.3.2
+
+- Fixed incorrect wool drops when killing sheep
+
 ## 1.3.1
 
 - Fixed a crash caused when shearing sheep dyed with dyes from the Dye Depot mod.

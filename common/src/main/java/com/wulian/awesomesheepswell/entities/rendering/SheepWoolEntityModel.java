@@ -26,7 +26,8 @@ public class SheepWoolEntityModel extends QuadrupedEntityModel<SheepEntity> {
         this.head.pivotY = 6.0F + sheepEntity.getNeckAngle(h) * 9.0F;
         this.headAngle = sheepEntity.getHeadAngle(h);
 
-        scale = ((((IThickness) sheepEntity).getThickness() / (float) AwesomeSheepSwell.getMaxThickness()) * (MAX_SCALE - 1)) + 1;
+        IThickness thicknessEntity = (IThickness) sheepEntity;
+        scale = ((((float) thicknessEntity.getThickness()) / (float) AwesomeSheepSwell.getMaxThickness()) * (MAX_SCALE - 1)) + 1;
     }
 
     public void setAngles(SheepEntity sheepEntity, float f, float g, float h, float i, float j) {
